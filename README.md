@@ -1,2 +1,2 @@
 # hechizos
-Proyecto sobre hechizos de Harry Potter
+Proyecto sobre hechizos de Harry Potterr
