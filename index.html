@@ -3,211 +3,36 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Panel informativo del equipo Cadete Gijón Jovellanos B: convocatorias, próximos partidos y resultados.">
-  <title>Cadete B | Gijón Jovellanos</title>
+  <title>Vídeo y audio</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap');
-
-    :root {
-      --ink: #17222b;
-      --muted: #61707a;
-      --red: #d6373f;
-      --red-dark: #9e1f2b;
-      --cream: #f4efe8;
-      --paper: #fffdfa;
-      --line: #ded9d2;
-      --shadow: 0 18px 50px rgba(23, 34, 43, .12);
-    }
-
-    * { box-sizing: border-box; margin: 0; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; line-height: 1.6; }
-    a { color: inherit; text-decoration: none; }
-    .container { margin: auto; max-width: 1180px; padding: 0 28px; }
-
-    header { background: var(--paper); border-bottom: 1px solid var(--line); position: relative; z-index: 5; }
-    .nav { align-items: center; display: flex; justify-content: space-between; min-height: 78px; }
-    .brand { align-items: center; display: flex; gap: 12px; }
-    .crest { align-items: center; background: var(--red); border-radius: 50%; color: white; display: grid; font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 800; height: 42px; letter-spacing: .03em; place-items: center; width: 42px; }
-    .brand strong { font-family: 'Barlow Condensed', sans-serif; font-size: 1.35rem; letter-spacing: .04em; text-transform: uppercase; }
-    .brand span { color: var(--red); display: block; font-size: .66rem; font-weight: 700; letter-spacing: .2em; line-height: 1; text-transform: uppercase; }
-    nav { display: flex; gap: 26px; }
-    nav a { color: var(--muted); font-size: .82rem; font-weight: 700; }
-    nav a:hover { color: var(--red); }
-    .nav-cta { background: var(--ink); border-radius: 3px; color: white; padding: 11px 17px; }
-
-    .hero { background: var(--cream); overflow: hidden; position: relative; }
-    .hero:after { background: var(--red); clip-path: polygon(35% 0, 100% 0, 100% 100%, 0 100%); content: ''; inset: 0 0 0 56%; opacity: .96; position: absolute; }
-    .hero-inner { align-items: center; display: grid; grid-template-columns: 1.05fr .95fr; min-height: 570px; position: relative; z-index: 1; }
-    .eyebrow { align-items: center; color: var(--red-dark); display: flex; font-size: .75rem; font-weight: 700; gap: 10px; letter-spacing: .2em; text-transform: uppercase; }
-    .eyebrow:before { background: var(--red); content: ''; height: 2px; width: 32px; }
-    h1, h2, h3 { font-family: 'Barlow Condensed', sans-serif; line-height: .95; text-transform: uppercase; }
-    h1 { font-size: clamp(4.4rem, 9vw, 8.3rem); letter-spacing: -.025em; margin: 22px 0; max-width: 640px; }
-    h1 em { color: var(--red); font-style: normal; }
-    .hero-copy p { color: var(--muted); font-size: 1.05rem; max-width: 460px; }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-    .button { border: 1px solid var(--ink); border-radius: 3px; display: inline-block; font-size: .8rem; font-weight: 700; letter-spacing: .08em; padding: 14px 20px; text-transform: uppercase; transition: transform .2s, background .2s; }
-    .button:hover { transform: translateY(-3px); }
-    .button.primary { background: var(--ink); color: white; }
-    .button.light { background: transparent; }
-
-    .hero-visual { align-items: center; display: flex; justify-content: center; min-height: 480px; position: relative; }
-    .hero-visual:before { border: 1px solid rgba(255,255,255,.35); border-radius: 50%; content: ''; height: 370px; position: absolute; width: 370px; }
-    .ball { background: #f8f2e8; border: 13px solid rgba(23,34,43,.16); border-radius: 50%; box-shadow: 22px 28px 0 rgba(23,34,43,.12), 0 20px 44px rgba(0,0,0,.2); font-size: 8rem; height: 240px; line-height: 215px; position: relative; text-align: center; transform: rotate(-18deg); width: 240px; }
-    .ball:after { color: var(--red); content: '✦'; font-size: 5rem; left: 76px; position: absolute; top: 7px; }
-    .season-tag { background: var(--ink); bottom: 70px; color: white; font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem; letter-spacing: .08em; padding: 13px 18px; position: absolute; right: 5%; transform: rotate(-5deg); }
-
-    .intro { padding: 88px 0; }
-    .intro-grid { display: grid; gap: 70px; grid-template-columns: 1fr 1.5fr; }
-    h2 { font-size: clamp(2.8rem, 5vw, 4.7rem); }
-    .intro h2 span { color: var(--red); }
-    .intro-copy { color: var(--muted); font-size: 1.05rem; max-width: 620px; }
-    .intro-copy p + p { margin-top: 18px; }
-    .rule { background: var(--red); height: 4px; margin: 26px 0; width: 56px; }
-
-    .numbers { background: var(--ink); color: white; padding: 38px 0; }
-    .number-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
-    .number { border-left: 1px solid rgba(255,255,255,.18); padding-left: 36px; }
-    .number:first-child { border: 0; padding-left: 0; }
-    .number b { color: #ff7778; display: block; font-family: 'Barlow Condensed', sans-serif; font-size: 3.5rem; line-height: 1; }
-    .number span { color: #ccd0d1; font-size: .84rem; text-transform: uppercase; }
-
-    .pillars { padding: 96px 0; }
-    .section-head { align-items: end; display: flex; justify-content: space-between; margin-bottom: 38px; }
-    .section-head p { color: var(--muted); max-width: 330px; }
-    .cards { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
-    .card { background: var(--cream); border-top: 4px solid var(--red); padding: 30px; }
-    .card-index { color: var(--red); font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; }
-    .card h3 { font-size: 1.8rem; margin: 28px 0 12px; }
-    .card p { color: var(--muted); font-size: .92rem; }
-
-    .join { background: var(--red); color: white; padding: 72px 0; }
-    .join-inner { align-items: center; display: flex; justify-content: space-between; gap: 30px; }
-    .join h2 { max-width: 570px; }
-    .join p { margin-top: 12px; opacity: .85; }
-    .join .button { border-color: white; color: white; white-space: nowrap; }
-    footer { background: #10181e; color: white; padding: 28px 0; }
-    .footer-inner { align-items: center; display: flex; justify-content: space-between; }
-    footer small { color: #9ba4aa; }
-    .footer-links { display: flex; gap: 20px; }
-    .footer-links a { color: #dbe0e2; font-size: .8rem; }
-
-    @media (max-width: 760px) {
-      .container { padding: 0 20px; }
-      nav { display: none; }
-      .hero-inner { grid-template-columns: 1fr; min-height: auto; padding-top: 72px; }
-      .hero:after { inset: 63% 0 0; clip-path: polygon(0 16%, 100% 0, 100% 100%, 0 100%); }
-      .hero-visual { min-height: 330px; }
-      .hero-visual:before { height: 260px; width: 260px; }
-      .ball { font-size: 5rem; height: 170px; line-height: 145px; width: 170px; }
-      .ball:after { font-size: 3rem; left: 54px; top: -3px; }
-      .season-tag { bottom: 20px; right: 7%; }
-      .intro-grid { gap: 28px; grid-template-columns: 1fr; }
-      .number-grid { gap: 26px; grid-template-columns: 1fr; }
-      .number, .number:first-child { border-left: 0; border-top: 1px solid rgba(255,255,255,.18); padding: 20px 0 0; }
-      .number:first-child { border-top: 0; padding-top: 0; }
-      .pillars { padding: 68px 0; }
-      .section-head, .join-inner, .footer-inner { align-items: flex-start; flex-direction: column; }
-      .section-head { gap: 20px; }
-      .cards { grid-template-columns: 1fr; }
-    }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *:before, *:after { transition: none !important; } }
-
-    .dashboard { background: #f5f6f7; padding: 42px 0 78px; }
-    .dashboard-head { align-items: end; display: flex; justify-content: space-between; margin-bottom: 28px; }
-    .dashboard-head h1 { font-size: clamp(3.2rem, 7vw, 6rem); letter-spacing: -.02em; margin: 14px 0 0; }
-    .dashboard-head p { color: var(--muted); font-size: .9rem; max-width: 330px; }
-    .update { align-items: center; color: var(--muted); display: flex; font-size: .76rem; gap: 8px; margin-top: 10px; }
-    .update:before { background: #36a269; border-radius: 50%; content: ''; height: 8px; width: 8px; }
-    .dashboard-grid { display: grid; gap: 20px; grid-template-columns: 1.25fr .75fr; }
-    .panel { background: white; border: 1px solid var(--line); box-shadow: 0 8px 25px rgba(23,34,43,.05); padding: 24px; }
-    .panel-title { align-items: center; display: flex; justify-content: space-between; margin-bottom: 22px; }
-    .panel-title h2 { font-size: 1.8rem; }
-    .panel-title a { color: var(--red); font-size: .75rem; font-weight: 700; text-transform: uppercase; }
-    .match { align-items: center; border-top: 1px solid var(--line); display: grid; gap: 12px; grid-template-columns: 90px 1fr auto; padding: 17px 0; }
-    .match:first-of-type { border-top: 0; padding-top: 0; }
-    .match-date { color: var(--muted); font-size: .76rem; font-weight: 700; text-transform: uppercase; }
-    .match-date strong { color: var(--ink); display: block; font-family: 'Barlow Condensed', sans-serif; font-size: 1.7rem; line-height: 1; }
-    .match-info b { display: block; font-size: .95rem; }
-    .match-info span { color: var(--muted); font-size: .78rem; }
-    .badge { background: #e4f3ea; border-radius: 20px; color: #267548; font-size: .68rem; font-weight: 700; padding: 5px 9px; text-transform: uppercase; }
-    .badge.local { background: #fbe8e8; color: var(--red-dark); }
-    .convocation { border-left: 4px solid var(--red); background: var(--cream); padding: 20px; }
-    .convocation h3 { font-size: 1.9rem; margin-bottom: 8px; }
-    .convocation p { color: var(--muted); font-size: .83rem; }
-    .convocation-meta { display: grid; gap: 11px; grid-template-columns: 1fr 1fr; margin: 20px 0; }
-    .meta-item { border-top: 1px solid var(--line); padding-top: 8px; }
-    .meta-item small { color: var(--muted); display: block; font-size: .66rem; font-weight: 700; text-transform: uppercase; }
-    .meta-item b { font-size: .88rem; }
-    .notice { background: var(--ink); color: white; margin-top: 20px; padding: 19px 20px; }
-    .notice small { color: #ff8889; display: block; font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-    .notice p { font-size: .87rem; margin-top: 7px; }
-    .results { margin-top: 20px; }
-    .result-row { align-items: center; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; padding: 13px 0; }
-    .result-row small { color: var(--muted); display: block; font-size: .7rem; }
-    .result-row b { font-family: 'Barlow Condensed', sans-serif; font-size: 1.5rem; }
-    .score.win { color: #267548; }
-    .score.loss { color: var(--red-dark); }
-    .tournaments { margin-top: 20px; }
-    .tournament-row { align-items: center; border-top: 1px solid var(--line); display: grid; gap: 16px; grid-template-columns: 1fr auto; padding: 15px 0; }
-    .tournament-row:first-of-type { border-top: 0; padding-top: 0; }
-    .tournament-row b { display: block; font-size: .93rem; }
-    .tournament-row small { color: var(--muted); font-size: .72rem; }
-    .tournament-result { text-align: right; }
-    .tournament-result strong { display: block; font-family: 'Barlow Condensed', sans-serif; font-size: 1.65rem; line-height: 1; }
-    .tournament-result span { color: var(--muted); font-size: .68rem; text-transform: uppercase; }
-    .video-panel { margin-top: 20px; }
-    .team-video { aspect-ratio: 16 / 9; background: #10181e; display: block; overflow: hidden; width: 100%; }
-    .team-video video { display: block; height: 100%; object-fit: cover; width: 100%; }
-    .video-caption { color: var(--muted); font-size: .8rem; margin-top: 12px; }
-    .info-strip { display: grid; gap: 20px; grid-template-columns: repeat(3, 1fr); margin-top: 20px; }
-    .info-strip .panel { padding: 18px 20px; }
-    .info-strip small { color: var(--muted); display: block; font-size: .68rem; font-weight: 700; text-transform: uppercase; }
-    .info-strip b { display: block; font-size: .93rem; margin-top: 4px; }
-    .dashboard-footer { background: var(--ink); color: #cbd1d4; padding: 28px 0; }
-    .dashboard-footer .footer-inner { min-height: 0; }
-
-    @media (max-width: 760px) {
-      .dashboard { padding-top: 28px; }
-      .dashboard-head { align-items: start; flex-direction: column; gap: 12px; }
-      .dashboard-grid, .info-strip { grid-template-columns: 1fr; }
-      .match { grid-template-columns: 74px 1fr; }
-      .match .badge { grid-column: 2; justify-self: start; }
-    }
+    :root { color-scheme: light; font-family: Arial, sans-serif; }
+    * { box-sizing: border-box; }
+    body { background: #f4efe8; color: #17222b; margin: 0; min-height: 100vh; padding: 32px 16px; }
+    main { margin: auto; max-width: 900px; }
+    h1 { font-size: clamp(2rem, 6vw, 4rem); margin: 0 0 28px; }
+    section { background: #fff; border: 1px solid #ded9d2; border-radius: 8px; margin-top: 20px; padding: 20px; }
+    h2 { font-size: 1.25rem; margin: 0 0 16px; }
+    video { background: #10181e; display: block; max-height: 75vh; width: 100%; }
+    audio { display: block; width: 100%; }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#inicio" aria-label="Gijón Jovellanos, inicio">
-        <span class="crest">GJ</span>
-        <div><strong>Gijón Jovellanos B</strong><span>Cadete · Panel del equipo</span></div>
-      </a>
-      <nav aria-label="Navegación principal">
-        <a href="#convocatoria">Convocatoria</a><a href="#partidos">Partidos</a><a href="#resultados">Resultados</a><a href="#torneos">Torneos</a><a href="#video">Vídeo</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="inicio">
-    <section class="dashboard">
-      <div class="container">
-        <div class="dashboard-head"><div><div class="eyebrow">Categoría Cadete B · Temporada 2026</div><h1>Panel<br><em>cadete B.</em></h1><div class="update">Última actualización: 20 de septiembre de 2026</div></div><p>Consulta aquí las convocatorias, horarios y resultados del Gijón Jovellanos B.</p></div>
-        <div class="dashboard-grid">
-          <section class="panel" id="partidos"><div class="panel-title"><h2>Próximos partidos</h2><a href="#partidos">Calendario completo</a></div>
-            <div class="match"><div class="match-date"><strong>27</strong>sep · 18:00</div><div class="match-info"><b>Gijón Jovellanos B <span>vs.</span> BM Avilés B</b><span>Palacio de Deportes de La Guía · Gijón</span></div><span class="badge local">Local</span></div>
-            <div class="match"><div class="match-date"><strong>04</strong>oct · 12:30</div><div class="match-info"><b>BM Oviedo B <span>vs.</span> Gijón Jovellanos B</b><span>Polideportivo Municipal de Vallobín · Oviedo</span></div><span class="badge">Visitante</span></div>
-            <div class="match"><div class="match-date"><strong>11</strong>oct · 17:00</div><div class="match-info"><b>Gijón Jovellanos B <span>vs.</span> BM Siero B</b><span>Palacio de Deportes de La Guía · Gijón</span></div><span class="badge local">Local</span></div>
-          </section>
-          <section class="panel" id="convocatoria"><div class="panel-title"><h2>Convocatoria</h2><span class="badge local">Cadete B · Confirmar</span></div><div class="convocation"><h3>Jornada 01</h3><p>Gijón Jovellanos B vs. BM Avilés B</p><div class="convocation-meta"><div class="meta-item"><small>Presentación</small><b>16:45 · Vestuario 2</b></div><div class="meta-item"><small>Partido</small><b>18:00 · La Guía</b></div></div><a class="button primary" href="mailto:info@gijonjovellanos.es?subject=Confirmación%20convocatoria%20Cadete%20B">Confirmar asistencia</a></div><div class="notice"><small>Aviso del cuerpo técnico</small><p>Recordad llevar la equipación roja y llegar con antelación.</p></div></section>
-        </div>
-        <section class="panel results" id="resultados"><div class="panel-title"><h2>Últimos resultados</h2><a href="#resultados">Ver temporada</a></div><div class="result-row"><div><b>Gijón Jovellanos 28 · 24 BM Navia</b><small>Jornada amistosa · 13 sep 2026</small></div><span class="score win">Victoria</span></div><div class="result-row"><div><b>BM La Calzada 26 · 26 Gijón Jovellanos</b><small>Jornada amistosa · 06 sep 2026</small></div><span class="score">Empate</span></div><div class="result-row"><div><b>Gijón Jovellanos 22 · 25 BM Siero</b><small>Partido de preparación · 30 ago 2026</small></div><span class="score loss">Derrota</span></div></section>
-        <section class="panel tournaments" id="torneos"><div class="panel-title"><h2>Resultados de torneos</h2><a href="#torneos">Historial</a></div><div class="tournament-row"><div><b>Torneo Villa de Gijón · Final</b><small>Gijón Jovellanos B 21 · 18 BM Avilés B · 14 sep 2026</small></div><div class="tournament-result"><strong class="score win">1.º</strong><span>Campeón</span></div></div><div class="tournament-row"><div><b>Memorial La Calzada · Semifinal</b><small>BM Oviedo B 24 · 22 Gijón Jovellanos B · 07 sep 2026</small></div><div class="tournament-result"><strong class="score loss">2.º</strong><span>Semifinalista</span></div></div><div class="tournament-row"><div><b>Trofeo Costa Verde · Fase de grupos</b><small>Gijón Jovellanos B 19 · 19 BM Siero B · 31 ago 2026</small></div><div class="tournament-result"><strong>Empate</strong><span>Grupo A</span></div></div></section>
-        <section class="panel video-panel" id="video"><div class="panel-title"><h2>Vídeo del equipo</h2><span class="badge">MP4</span></div><div class="team-video"><video controls preload="metadata" playsinline poster=""><source src="3D_lion_billboard_animation_20260918184946.mp4" type="video/mp4">Tu navegador no permite reproducir este vídeo.</video></div><p class="video-caption">Vídeo compartido con el equipo Cadete B.</p></section>
-        <div class="info-strip"><div class="panel"><small>Próximo entrenamiento</small><b>Martes · 20:30 · La Arena</b></div><div class="panel"><small>Material</small><b>Revisión de equipaciones</b></div><div class="panel"><small>Contacto delegado</small><b><a href="mailto:info@gijonjovellanos.es">info@gijonjovellanos.es</a></b></div></div>
-      </div>
+  <main>
+    <h1>Gijón Jovellanos B · Cadete</h1>
+    <section>
+      <h2>Vídeo</h2>
+      <video controls preload="metadata" playsinline>
+        <source src="3D_lion_billboard_animation_20260918184946.mp4" type="video/mp4">
+        Tu navegador no permite reproducir este vídeo.
+      </video>
+    </section>
+    <section>
+      <h2>Audio del león</h2>
+      <audio controls preload="metadata">
+        <source src="sonido-leon.mp3" type="audio/mpeg">
+        Tu navegador no permite reproducir este audio.
+      </audio>
     </section>
   </main>
-  <footer class="dashboard-footer"><div class="container footer-inner"><small>© 2026 Gijón Jovellanos · Panel informativo</small><div class="footer-links"><a href="#inicio">Volver arriba</a><a href="mailto:info@gijonjovellanos.es">Contactar</a></div></div></footer>
 </body>
 </html>
