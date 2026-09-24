@@ -156,6 +156,10 @@
     .tournament-result { text-align: right; }
     .tournament-result strong { display: block; font-family: 'Barlow Condensed', sans-serif; font-size: 1.65rem; line-height: 1; }
     .tournament-result span { color: var(--muted); font-size: .68rem; text-transform: uppercase; }
+    .video-panel { margin-top: 20px; }
+    .team-video { aspect-ratio: 16 / 9; background: #10181e; display: block; overflow: hidden; width: 100%; }
+    .team-video video { display: block; height: 100%; object-fit: cover; width: 100%; }
+    .video-caption { color: var(--muted); font-size: .8rem; margin-top: 12px; }
     .info-strip { display: grid; gap: 20px; grid-template-columns: repeat(3, 1fr); margin-top: 20px; }
     .info-strip .panel { padding: 18px 20px; }
     .info-strip small { color: var(--muted); display: block; font-size: .68rem; font-weight: 700; text-transform: uppercase; }
@@ -180,7 +184,7 @@
         <div><strong>Gijón Jovellanos B</strong><span>Cadete · Panel del equipo</span></div>
       </a>
       <nav aria-label="Navegación principal">
-        <a href="#convocatoria">Convocatoria</a><a href="#partidos">Partidos</a><a href="#resultados">Resultados</a><a href="#torneos">Torneos</a>
+        <a href="#convocatoria">Convocatoria</a><a href="#partidos">Partidos</a><a href="#resultados">Resultados</a><a href="#torneos">Torneos</a><a href="#video">Vídeo</a>
       </nav>
     </div>
   </header>
@@ -199,6 +203,7 @@
         </div>
         <section class="panel results" id="resultados"><div class="panel-title"><h2>Últimos resultados</h2><a href="#resultados">Ver temporada</a></div><div class="result-row"><div><b>Gijón Jovellanos 28 · 24 BM Navia</b><small>Jornada amistosa · 13 sep 2026</small></div><span class="score win">Victoria</span></div><div class="result-row"><div><b>BM La Calzada 26 · 26 Gijón Jovellanos</b><small>Jornada amistosa · 06 sep 2026</small></div><span class="score">Empate</span></div><div class="result-row"><div><b>Gijón Jovellanos 22 · 25 BM Siero</b><small>Partido de preparación · 30 ago 2026</small></div><span class="score loss">Derrota</span></div></section>
         <section class="panel tournaments" id="torneos"><div class="panel-title"><h2>Resultados de torneos</h2><a href="#torneos">Historial</a></div><div class="tournament-row"><div><b>Torneo Villa de Gijón · Final</b><small>Gijón Jovellanos B 21 · 18 BM Avilés B · 14 sep 2026</small></div><div class="tournament-result"><strong class="score win">1.º</strong><span>Campeón</span></div></div><div class="tournament-row"><div><b>Memorial La Calzada · Semifinal</b><small>BM Oviedo B 24 · 22 Gijón Jovellanos B · 07 sep 2026</small></div><div class="tournament-result"><strong class="score loss">2.º</strong><span>Semifinalista</span></div></div><div class="tournament-row"><div><b>Trofeo Costa Verde · Fase de grupos</b><small>Gijón Jovellanos B 19 · 19 BM Siero B · 31 ago 2026</small></div><div class="tournament-result"><strong>Empate</strong><span>Grupo A</span></div></div></section>
+        <section class="panel video-panel" id="video"><div class="panel-title"><h2>Vídeo del equipo</h2><span class="badge">MP4</span></div><div class="team-video"><video controls preload="metadata" playsinline poster=""><source src="3D_lion_billboard_animation_20260918184946.mp4" type="video/mp4">Tu navegador no permite reproducir este vídeo.</video></div><p class="video-caption">Vídeo compartido con el equipo Cadete B.</p></section>
         <div class="info-strip"><div class="panel"><small>Próximo entrenamiento</small><b>Martes · 20:30 · La Arena</b></div><div class="panel"><small>Material</small><b>Revisión de equipaciones</b></div><div class="panel"><small>Contacto delegado</small><b><a href="mailto:info@gijonjovellanos.es">info@gijonjovellanos.es</a></b></div></div>
       </div>
     </section>
